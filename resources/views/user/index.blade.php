@@ -1,5 +1,5 @@
 @extends("layouts.app")
-@section("title", "Home")
+@section("title", "User")
 
 @section("header-content")
     <div class="card-header d-flex justify-content-between">

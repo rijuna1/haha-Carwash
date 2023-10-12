@@ -1,30 +1,30 @@
 @extends("layouts.app")
-@section("title", "Type Car")
+@section("title", "Type Wash")
 
 @section("header-content")
     <div class="card-header d-flex justify-content-between">
         <div class="col-md-10">
             <div class="header-title">
-                <h4 class="card-title">Data Type Car</h4>
+                <h4 class="card-title">Data Type Wash</h4>
             </div>
         </div>
         <div class="col-md-2 float-right">
-            <button type="button" class="btn btn-primary rounded-pill" id="addTypeCar">
-                Add Type Car
+            <button type="button" class="btn btn-primary rounded-pill" id="addTypeWash">
+                Add Type Wash
             </button>
         </div>
     </div>
 @endsection
 
 @section("content")
-    <p>The following is the type car data that has been saved.</p>
+    <p>The following is the type wash data that has been saved.</p>
     <div class="table-responsive">
        <table id="datatable" class="table table-striped yajra-datatable">
           <thead>
              <tr>
                 <th>No</th>
-                <th>Type Car</th>
-                <th>Price</th>
+                <th>Type Wash</th>
+                <th>Discount</th>
                 <th>Action</th>
              </tr>
           </thead>
@@ -36,18 +36,18 @@
 @endsection
 
 @push("js")
-    @include("typeCar.ajax")
+    @include("typeWash.ajax")
 @endpush
 
-<!-- Modal Type Car -->
-<div class="modal fade" id="typeCar" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="typeCarLabel" aria-hidden="true">
+<!-- Modal Type Wash -->
+<div class="modal fade" id="typeWash" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="typeWashLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="typeCarLabel"></h5>
+          <h5 class="modal-title" id="typeWashLabel"></h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form id="actiontypeCar">
+        <form id="actiontypeWash">
             @csrf
             <div class="modal-body">
                 <input  type="hidden" name="id" id="id" class="form-control">
@@ -57,18 +57,18 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="type_car">Type Car : </label>
-                            <input required="" type="text" name="type_car" id="type_car" class="form-control">
+                            <label for="type_wash">Type Wash : </label>
+                            <input required="" type="text" name="type_wash" id="type_wash" class="form-control">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="form-group">
-                            <label for="price">Price : </label>
+                            <label for="discount">Discount : </label>
                             <div class="input-group mb-3">
-                                <span class="input-group-text">Rp.</span>
-                                <input required="" type="number" name="price" id="price" class="form-control">
+                                <input required="" type="number" name="discount" id="discount" class="form-control">
+                                <span class="input-group-text">%</span>
                             </div>
                         </div>
                     </div>
@@ -82,4 +82,4 @@
       </div>
     </div>
 </div>
-  {{-- End Modal Type Car --}}
+  {{-- End Modal Type Wash --}}

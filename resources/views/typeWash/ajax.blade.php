@@ -3,55 +3,55 @@
         var table = $('.yajra-datatable').DataTable({
            processing: true,
            serverSide: true,
-           ajax: "{{ route('type-car.index') }}",
+           ajax: "{{ route('type-wash.index') }}",
            columns: [
                {data: 'DT_RowIndex' , name: 'id'},
-               {data: 'type_car', name: 'type_car'},
-               {data: 'price', name: 'price'},
+               {data: 'type_wash', name: 'type_wash'},
+               {data: 'discount', name: 'discount'},
                {data: 'action', name: 'action', orderable: false, searchable: false},
            ]
        });
      }); 
 
-    $('#addTypeCar').click(function () {
-        $('#saveBtn').val("create-type-car");
+    $('#addTypeWash').click(function () {
+        $('#saveBtn').val("create-type-wash");
         $('#id').val('');
-        $('#actiontypeCar').trigger("reset");
-        $('#typeCarLabel').html("Create New Type Car");
+        $('#actiontypeWash').trigger("reset");
+        $('#typeCarLabel').html("Create New Type Wash");
         resetErrorMsg();
-        $('#typeCar').modal('show');
+        $('#typeWash').modal('show');
     });
 
-    $('body').on('click', '.editTypeCar', function () {
-      var typeCar_id = $(this).data('id');
-      $.get("{{ route('type-car.index') }}" +'/' + typeCar_id +'/edit', function (data) {
-        $('#typeCarLabel').html("Edit Type Car");
-        $('#saveBtn').val("create-type-car");
+    $('body').on('click', '.editTypeWash', function () {
+      var typeWash_id = $(this).data('id');
+      $.get("{{ route('type-wash.index') }}" +'/' + typeWash_id +'/edit', function (data) {
+        $('#typeWashLabel').html("Edit Type Wash");
+        $('#saveBtn').val("create-type-wash");
         $('#id').val(data.id);
 
-        $('#type_car').val(data.type_car);
-        $('#price').val(data.price);
+        $('#type_wash').val(data.type_wash);
+        $('#discount').val(data.discount);
         resetErrorMsg();
-        $('#typeCar').modal('show');
+        $('#typeWash').modal('show');
       })
     });
 
-     $("#actiontypeCar").on("submit", function(e) {
+     $("#actiontypeWash").on("submit", function(e) {
         e.preventDefault()
         $('#saveBtn').html('Sending...');
         $.ajax({
-            url: "{{ route('type-car.store') }}",
+            url: "{{ route('type-wash.store') }}",
             method: "POST",
             data: $(this).serialize(),
             success:function(response) {
-                $("#typeCar").modal("hide")
+                $("#typeWash").modal("hide")
                 $('.yajra-datatable').DataTable().ajax.reload()
                 Swal.fire(
                 '',
                 response.message,
                 'success'
                 )
-                $('#actiontypeCar').trigger("reset");
+                $('#actiontypeWash').trigger("reset");
                 $('#saveBtn').html('Save');
             },
             error: function(err) {
@@ -69,8 +69,8 @@
         })
     });
 
-    $('body').on('click', '.deleteTypeCar', function () {
-        var typeCar_id = $(this).data("id");
+    $('body').on('click', '.deleteTypeWash', function () {
+        var typeWash_id = $(this).data("id");
         Swal.fire({
             title: 'Are You sure want to delete !',
             icon: "warning",
@@ -81,7 +81,7 @@
             }).then((result) => {
             if (result.isConfirmed) {
                 $.ajax({
-                    url: "{{ route('type-car.store') }}"+'/'+ typeCar_id,
+                    url: "{{ route('type-wash.store') }}"+'/'+ typeWash_id,
                     method: "DELETE",
                     data: {
                         "_token": $("meta[name='csrf-token']").attr("content")
