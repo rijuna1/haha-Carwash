@@ -15,4 +15,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css') }}/dark.min.css" />
     <link rel="stylesheet" href="{{ asset('assets/css') }}/customizer.min.css" />
     <link rel="stylesheet" href="{{ asset('assets/css') }}/rtl.min.css" />
+    <link rel="stylesheet" href="{{ asset('assets/css') }}/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="{{ asset('assets/css') }}/sweetalert2.min.css">
 </head>

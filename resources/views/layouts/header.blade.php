@@ -4,7 +4,8 @@
     <div id="loading">
       <div class="loader simple-loader">
           <div class="loader-body"></div>
-      </div>    </div>
+      </div>    
+    </div>
     <!-- loader END -->
     
     <aside class="sidebar sidebar-default sidebar-white sidebar-base navs-rounded-all ">
@@ -42,7 +43,7 @@
                         </a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link active" aria-current="page" href="{{ url('/home') }}">
+                        <a class="nav-link {{ Request::segment(1) == 'home' ? 'active' : '' }}" aria-current="page" href="{{ url('/home') }}">
                             <i class="icon">
                                 <img src="{{ asset('assets/images') }}/sidebar/home.svg" alt="" style="width: 20px; opacity: 0.4;" >
                             </i>
@@ -57,7 +58,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link "  href="{{ url('/transaction') }}">
+                        <a class="nav-link {{ Request::segment(1) == 'transaction' ? 'active' : '' }}"  href="{{ url('/transaction') }}">
                             <i class="icon">
                                 <img src="{{ asset('assets/images') }}/sidebar/transaction.svg" alt="" style="width: 20px; opacity: 0.4;" >
                             </i>
@@ -72,7 +73,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/user') }}">
+                        <a class="nav-link {{ Request::segment(1) == 'user' ? 'active' : '' }}" href="{{ url('/user') }}">
                             <i class="icon">
                                 <img src="{{ asset('assets/images') }}/sidebar/user.svg" alt="" style="width: 20px; opacity: 0.4;" >
                             </i>
@@ -80,7 +81,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/type-car') }}">
+                        <a class="nav-link {{ Request::segment(1) == 'type-car' ? 'active' : '' }}" href="{{ url('/type-car') }}">
                             <i class="icon">
                                 <img src="{{ asset('assets/images') }}/sidebar/car.svg" alt="" style="width: 20px; opacity: 0.4;" >
                             </i>
@@ -88,7 +89,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url('/type-wash') }}">
+                        <a class="nav-link {{ Request::segment(1) == 'type-wash' ? 'active' : '' }}" href="{{ url('/type-wash') }}">
                             <i class="icon">
                                 <img src="{{ asset('assets/images') }}/sidebar/carwash.svg" alt="" style="width: 20px; opacity: 0.4;" >
                             </i>

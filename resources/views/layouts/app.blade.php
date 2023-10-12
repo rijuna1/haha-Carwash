@@ -3,6 +3,7 @@
             <div class="row">                  
                 <div class="col-lg-12">
                     <div class="card   rounded">
+                        @yield("header-content")
                         <div class="card-body">
                             @yield("content")
                         </div>
