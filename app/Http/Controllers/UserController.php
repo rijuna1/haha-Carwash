@@ -23,6 +23,20 @@ class UserController extends Controller
     public function store(Request $request)
     {
         if($request->id){
+            if($request->password){
+                $request->validate([
+                    'password' => 'required|min:6|confirmed',
+                ]);
+    
+               $user = User::findOrFail($request->id);
+
+               $user->update([
+                'password' => $request->password, 
+               ]);
+               
+               return response()->json(['message'=>'Password updated successfully.']);
+            }
+
             $request->validate([
                 'name' => 'required|min:3|max:50',
                 'username' => 'required|min:3|max:20',

@@ -19,8 +19,11 @@
         $('#id').val('');
         $('#actionUser').trigger("reset");
         $('#userLabel').html("Create New User");
+        $('#name').removeAttr("disabled");
+        $('#username').removeAttr("disabled");
         $('#password').removeAttr("disabled");
         $('#password_confirmation').removeAttr("disabled");
+        $('#role').removeAttr("disabled");
         resetErrorMsg();
         $('#user').modal('show');
     });
@@ -31,8 +34,34 @@
         $('#userLabel').html("Edit User");
         $('#saveBtn').val("edit-user");
         $('#id').val(data.id);
+
+        $('#name').removeAttr("disabled");
+        $('#username').removeAttr("disabled");
         $('#password').attr("disabled", "disabled");
         $('#password_confirmation').attr("disabled", "disabled");
+        $('#role').removeAttr("disabled");
+
+        $('#name').val(data.name);
+        $('#username').val(data.username);
+        $('#role').val(data.role);
+        resetErrorMsg();
+        $('#user').modal('show');
+      })
+    });
+
+    $('body').on('click', '.resetUser', function () {
+      var user_id = $(this).data('id');
+      $.get("{{ route('user.index') }}" +'/' + user_id +'/edit', function (data) {
+        $('#userLabel').html("Reset Password");
+        $('#saveBtn').val("reset-user");
+        $('#id').val(data.id);
+
+        $('#name').attr("disabled", "disabled");
+        $('#username').attr("disabled", "disabled");
+        $('#password').removeAttr("disabled");
+        $('#password_confirmation').removeAttr("disabled");
+        $('#role').attr("disabled", "disabled");
+
         $('#name').val(data.name);
         $('#username').val(data.username);
         $('#role').val(data.role);
