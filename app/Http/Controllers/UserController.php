@@ -39,14 +39,12 @@ class UserController extends Controller
 
             $request->validate([
                 'name' => 'required|min:3|max:50',
-                'username' => 'required|min:3|max:20',
                 'role' => 'required',
             ]);
 
            $user = User::findOrFail($request->id);
            $user->update([
             'name' => $request->name, 
-            'username' => $request->username,
             'role' => $request->role,
            ]);
            

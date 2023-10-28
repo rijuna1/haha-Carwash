@@ -50,4 +50,17 @@ class TypeCarController extends Controller
       
         return response()->json(['message'=>'Type Car deleted successfully.']);
     }
+
+    public function getTypeCar()
+    {
+        $cars = TypeCar::pluck('type_car', 'id')->map(function($type_car, $id){
+            $data_price = TypeCar::find($id)->price;
+            return [
+                'type_car' => $type_car,
+                'price' => $data_price
+            ];
+        });
+
+        return response()->json($cars);
+    }
 }

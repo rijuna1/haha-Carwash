@@ -45,7 +45,7 @@
                     <li class="nav-item ">
                         <a class="nav-link {{ Request::segment(1) == 'home' ? 'active' : '' }}" aria-current="page" href="{{ url('/home') }}">
                             <i class="icon">
-                                <img src="{{ asset('assets/images') }}/sidebar/home.svg" alt="" style="width: 20px; opacity: 0.4;" >
+                                <img src="{{ asset('assets/images') }}/sidebar/{{ Request::segment(1) == 'home' ? 'home-white.svg' : 'home.svg' }}" alt="" style="width: 20px;" >
                             </i>
                             <span class="item-name">Home</span>
                         </a>
@@ -60,7 +60,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ Request::segment(1) == 'transaction' ? 'active' : '' }}"  href="{{ url('/transaction') }}">
                             <i class="icon">
-                                <img src="{{ asset('assets/images') }}/sidebar/transaction.svg" alt="" style="width: 20px; opacity: 0.4;" >
+                                <img src="{{ asset('assets/images') }}/sidebar/{{ Request::segment(1) == 'transaction' ? 'transaction-white.svg' : 'transaction.svg' }}" alt="" style="width: 20px;" >
                             </i>
                             <span class="item-name">Transaction</span>
                         </a>
@@ -72,10 +72,13 @@
                             <span class="mini-icon">-</span>
                         </a>
                     </li>
+
+                    @if(Auth::user()->role == "Admin")
+
                     <li class="nav-item">
                         <a class="nav-link {{ Request::segment(1) == 'user' ? 'active' : '' }}" href="{{ url('/user') }}">
                             <i class="icon">
-                                <img src="{{ asset('assets/images') }}/sidebar/user.svg" alt="" style="width: 20px; opacity: 0.4;" >
+                                <img src="{{ asset('assets/images') }}/sidebar/{{ Request::segment(1) == 'user' ? 'user-white.svg' : 'user.svg' }}" alt="" style="width: 20px;" >
                             </i>
                             <span class="item-name">User</span>
                         </a>
@@ -83,7 +86,7 @@
                     <li class="nav-item">
                         <a class="nav-link {{ Request::segment(1) == 'type-car' ? 'active' : '' }}" href="{{ url('/type-car') }}">
                             <i class="icon">
-                                <img src="{{ asset('assets/images') }}/sidebar/car.svg" alt="" style="width: 20px; opacity: 0.4;" >
+                                <img src="{{ asset('assets/images') }}/sidebar/{{ Request::segment(1) == 'type-car' ? 'car-white.svg' : 'car.svg' }}" alt="" style="width: 20px;" >
                             </i>
                             <span class="item-name">Type Car</span>
                         </a>
@@ -91,9 +94,20 @@
                     <li class="nav-item">
                         <a class="nav-link {{ Request::segment(1) == 'type-wash' ? 'active' : '' }}" href="{{ url('/type-wash') }}">
                             <i class="icon">
-                                <img src="{{ asset('assets/images') }}/sidebar/carwash.svg" alt="" style="width: 20px; opacity: 0.4;" >
+                                <img src="{{ asset('assets/images') }}/sidebar/{{ Request::segment(1) == 'type-wash' ? 'carwash-white.svg' : 'carwash.svg' }}" alt="" style="width: 20px;" >
                             </i>
                             <span class="item-name">Type Wash</span>
+                        </a>
+                    </li>
+                    
+                    @endif
+                    
+                    <li class="nav-item">
+                        <a class="nav-link {{ Request::segment(1) == 'reset-password' ? 'active' : '' }}" href="{{ url('/reset-password') }}">
+                            <i class="icon">
+                                <img src="{{ asset('assets/images') }}/sidebar/{{ Request::segment(1) == 'reset-password' ? 'reset-white.svg' : 'reset.svg' }}" alt="" style="width: 20px;" >
+                            </i>
+                            <span class="item-name">Reset Password</span>
                         </a>
                     </li>
                 </ul>

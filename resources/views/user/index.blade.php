@@ -92,7 +92,7 @@
                         <div class="form-group">
                             <label for="role">Role :</label>
                             <select name="role" id="role"  class="form-select" aria-label="Default select example"  required>
-                                <option selected disabled value="">-- SILAHKAN PILIH ROLE --</option>
+                                <option selected disabled value="">-- Please Select Role --</option>
                                 <option value = "Admin">Admin</option>
                                 <option value = "Pegawai">Pegawai</option>
                             </select>

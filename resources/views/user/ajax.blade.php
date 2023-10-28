@@ -36,7 +36,7 @@
         $('#id').val(data.id);
 
         $('#name').removeAttr("disabled");
-        $('#username').removeAttr("disabled");
+        $('#username').attr("disabled", "disabled");
         $('#password').attr("disabled", "disabled");
         $('#password_confirmation').attr("disabled", "disabled");
         $('#role').removeAttr("disabled");

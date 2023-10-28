@@ -13,6 +13,7 @@
     <script src="{{ asset('assets/js') }}/jquery.dataTables.min.js"></script>
     <script src="{{ asset('assets/js') }}/dataTables.bootstrap5.min.js"></script>
     <script src="{{ asset('assets/js') }}/sweetalert2.all.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest"></script>
     @stack('js')
 </body>
 

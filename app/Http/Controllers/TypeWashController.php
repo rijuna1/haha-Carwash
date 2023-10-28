@@ -50,4 +50,17 @@ class TypeWashController extends Controller
       
         return response()->json(['message'=>'Type Wash deleted successfully.']);
     }
+
+    public function getTypeWash()
+    {
+        $washes = TypeWash::pluck('type_wash', 'id')->map(function($type_wash, $id){
+            $data_discount = TypeWash::find($id)->discount;
+            return [
+                'type_wash' => $type_wash,
+                'discount' => $data_discount
+            ];
+        });
+
+        return response()->json($washes);
+    }
 }
