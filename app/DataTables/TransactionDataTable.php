@@ -9,7 +9,7 @@ class TransactionDataTable
 {
     public function data()
     {
-        $data = Transaction::latest()->get();
+        $data = Transaction::latest('id')->get();
         return Datatables::of($data)
             ->addIndexColumn()
             ->addColumn('action', function($row){

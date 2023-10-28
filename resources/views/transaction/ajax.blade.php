@@ -5,7 +5,7 @@ $(function () {
         serverSide: true,
         ajax: "{{ route('transaction.index') }}",
         columns: [
-            {data: 'DT_RowIndex' , name: 'id'},
+            {data: 'DT_RowIndex' , name: 'id', orderable: false, searchable: false},
             {data: 'plat', name: 'plat'},
             {data: 'name', name: 'name'},
             {data: 'merk_car', name: 'merk_car'},

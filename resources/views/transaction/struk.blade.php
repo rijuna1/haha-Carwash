@@ -4,7 +4,7 @@
 </head>
 <body>
     <div style="text-align: center; margin-bottom: 10px">
-        <h1> =====&gt; HaHa CarWash &lt;===== </h1>
+        <h1> ==&gt; HaHa CarWash &lt;== </h1>
         <img src="data:image/png;base64,{{ base64_encode($qrcode) }}" alt="QR Code">
     </div>
     <table style="margin-left:auto;margin-right:auto">

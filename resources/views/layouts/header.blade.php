@@ -65,6 +65,9 @@
                             <span class="item-name">Transaction</span>
                         </a>
                     </li>
+
+                    @if(Auth::user()->role == "Admin")
+                    
                     <li><hr class="hr-horizontal"></li>
                     <li class="nav-item static-item">
                         <a class="nav-link static-item disabled" href="#" tabindex="-1">
@@ -72,8 +75,6 @@
                             <span class="mini-icon">-</span>
                         </a>
                     </li>
-
-                    @if(Auth::user()->role == "Admin")
 
                     <li class="nav-item">
                         <a class="nav-link {{ Request::segment(1) == 'user' ? 'active' : '' }}" href="{{ url('/user') }}">
@@ -99,17 +100,9 @@
                             <span class="item-name">Type Wash</span>
                         </a>
                     </li>
-                    
+
                     @endif
-                    
-                    <li class="nav-item">
-                        <a class="nav-link {{ Request::segment(1) == 'reset-password' ? 'active' : '' }}" href="{{ url('/reset-password') }}">
-                            <i class="icon">
-                                <img src="{{ asset('assets/images') }}/sidebar/{{ Request::segment(1) == 'reset-password' ? 'reset-white.svg' : 'reset.svg' }}" alt="" style="width: 20px;" >
-                            </i>
-                            <span class="item-name">Reset Password</span>
-                        </a>
-                    </li>
+
                 </ul>
                 <!-- Sidebar Menu End -->        
             </div>
